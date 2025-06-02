@@ -20,7 +20,8 @@ const EmailModal: React.FC<EmailModalProps> = ({
     const [isValid, setIsValid] = useState(initialEmail ? validateEmail(initialEmail) : true);
 
     function validateEmail(emailValue: string) {
-        return emailValue.includes('@') && emailValue.includes('.com');
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/;
+        return emailRegex.test(emailValue);
     }
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +49,7 @@ const EmailModal: React.FC<EmailModalProps> = ({
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-[#16161666] bg-opacity-40 backdrop-blur-md flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-[#16161666] bg-opacity-40 backdrop-blur-sm flex items-center justify-center z-50">
             <div className="bg-[#1C1D1F] font-sans grid border-4 border-[#292929] rounded-xl py-7 px-4 w-[589px] h-[342px]">
                 {/* Close Button */}
                 <button
