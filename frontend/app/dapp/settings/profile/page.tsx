@@ -1,33 +1,19 @@
-"use client"
-
-import EmailModal from "@/app/components/EmailModal";
-import { useState } from "react";
-
-export default function Page() {
-
-    const [isModalOpen, setIsModalOpen] = useState(true);
-
-    const handleSave = (email: string) => {
-        console.log('Saved email:', email);
-        alert(`Email saved: ${email}`);
-    };
-
+export default function ProfilePage() {
     return (
-        <div className="min-h-screen bg-gray-900 text-center flex items-center justify-center">
-            <button
-                onClick={() => setIsModalOpen(true)}
-                className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
-            >
-                Open Email Modal
-            </button>
+        <div className="space-y-8">
+            <div>
+                <h1 className="text-3xl font-bold text-white mb-3">Profile</h1>
+                <p className="text-gray-400">
+                    Manage your personal information and account details.
+                </p>
+            </div>
 
-            <EmailModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                onSave={handleSave}
-                initialEmail="johnsmith@gmail.com"
-            />
+            <div className="bg-gray-900 rounded-lg p-8 text-center">
+                <h2 className="text-xl font-semibold text-white mb-2">
+                    Profile Settings
+                </h2>
+                <p className="text-gray-400">This page is under construction.</p>
+            </div>
         </div>
-    );
-};
-
+    )
+}
